@@ -2,22 +2,13 @@ import React, { useState } from "react"
 
 import { Toggle } from "../ui/toggle"
 
-type GenreData = {
+type PersonData = {
   Genre: String[]
+  Mood: String[]
 }
 
-export const MusicGenres = () => {
-  const genresList = [
-    "hiphop",
-    "Rock",
-    "Jazz",
-    "EDM",
-    "Country",
-    "Pop",
-    "Indie",
-    "K-POP",
-  ]
-  const [toggledGenres, setToggledGenres] = useState<GenreData[]>([])
+export const MusicGenres = ({ genresList }) => {
+  const [toggledGenres, setToggledGenres] = useState<PersonData[]>([])
 
   const addGenreToList = (e) => {
     const val = e.target.value
@@ -29,17 +20,18 @@ export const MusicGenres = () => {
   }
 
   return (
-    <>
+    <div className="Genre_list">
       {genresList.map((gen) => (
         <Toggle
           onClick={addGenreToList}
           key={gen}
           value={gen}
           variant="outline"
+          className="Genre"
         >
           {gen}
         </Toggle>
       ))}
-    </>
+    </div>
   )
 }
