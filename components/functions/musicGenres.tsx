@@ -20,7 +20,7 @@ export const MusicGenres = ({ genresList }) => {
   }
 
   return (
-    <div className="Genre_list">
+    <>
       {genresList.map((gen) => (
         <Toggle
           onClick={addGenreToList}
@@ -32,6 +32,6 @@ export const MusicGenres = ({ genresList }) => {
           {gen}
         </Toggle>
       ))}
-    </div>
+    </>
   )
 }

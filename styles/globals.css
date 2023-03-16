@@ -1,14 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.Genre_list{
+.Genre{
+    margin: 2vh 2vh;
+    flex: 1 0 21%;
+}
+.genre_box{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     max-width: 60vh;
+    padding: 3vh;
+    margin-left: auto;
+    margin-right: 20px;
 }
-.Genre{
-    margin: 2vh 2vh;
-    flex: 1 0 21%;
+.search_bar{
+    margin: auto;
+}
+.mood_box{
+    margin:0 auto;
+    overflow: hidden;
+    max-width:90%;
+}
+.mood_slider{
+    display: flex;
+    white-space: nowrap;
+}
+.mood_item{
+    margin: 0;
+    padding: 3vh 7vh;
+    transition: font-size .5s ease;
+    font-size: 1.5vh;
+}
+.mood_item:hover{
+    font-size: 2vh;
 }

@@ -1,31 +1,52 @@
+import React, { useEffect, useRef, useState } from "react"
+import { motion } from "framer-motion"
 import { Italic } from "lucide-react"
-import React, { useState } from "react"
 
 import { Toggle } from "../ui/toggle"
 
 type PersonData = {
-    Genre: String[],
-    Mood: String[]
-  }
+  Genre: String[]
+  Mood: String[]
+}
 
 export const WordAnimation = ({ moodList }) => {
-    const [toggledMood, setToggledMood] = useState<PersonData[]>([])
+  const [toggledMood, setToggledMood] = useState<PersonData[]>([])
+  const [width, setWidth] = useState<number>(0)
+  const carousel = useRef(null);
 
-    const addMoodToList = (e) => {
-      const val = e.target.value
-      if (toggledMood.includes(val)) {
-        setToggledMood(toggledMood.filter((gen) => gen !== val))
-      } else {
-        setToggledMood([...toggledMood, val])
-      }
+  useEffect(() => {
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+  },[])
+
+  const addMoodToList = (e) => {
+    const val = e.target.value
+    if (toggledMood.includes(val)) {
+      setToggledMood(toggledMood.filter((gen) => gen !== val))
+    } else {
+      setToggledMood([...toggledMood, val])
     }
+  }
   return (
-    <>
-      {moodList.map((item) => (
-        <Toggle onClick={addMoodToList} size="lg" aria-label="Toggle italic">
-          {item}
-        </Toggle>
-      ))}
-    </>
+    <motion.div ref={carousel} className="carousel mood_box">
+      <motion.div
+        drag="x"
+        dragConstraints={{ right: 0, left: -width }}
+        className="inner-carousel mood_slider"
+      >
+        {moodList.map((item) => (
+          <motion.div className="item mood_item">
+            <Toggle
+              key={item}
+              onClick={addMoodToList}
+              size="lg"
+              aria-label="Toggle italic"
+              className="mood_item"
+            >
+              {item}
+            </Toggle>
+          </motion.div>
+        ))}
+      </motion.div>
+    </motion.div>
   )
 }
