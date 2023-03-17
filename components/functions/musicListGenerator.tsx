@@ -4,10 +4,10 @@ import { Input } from "../ui/input"
 import { MusicGenres } from "./musicGenres"
 import { WordAnimation } from "./wordAnimation"
 
-const OpenAI_Req = async (e) => {
-  const input = e.target.value
+const OpenAI_Req_Genereate_Music = async (e) => {
+  const input = e
   try {
-    const res = await fetch(`/api/getAIResponse?input=${input}`)
+    const res = await fetch(`/api/getAIMusicList?input=${input}`)
     if (!res.ok) throw new Error(`error: ${res.status}`)
     const data = await res.json()
     return await JSON.parse(data.choices[0].text)
@@ -15,4 +15,4 @@ const OpenAI_Req = async (e) => {
     console.log(e, "Error")
   }
 }
-export default OpenAI_Req
+export default OpenAI_Req_Genereate_Music

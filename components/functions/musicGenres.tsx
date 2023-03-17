@@ -7,9 +7,11 @@ type PersonData = {
   Mood: String[]
 }
 
-export const MusicGenres = ({ genresList }) => {
-  const [toggledGenres, setToggledGenres] = useState<PersonData[]>([])
-
+export const MusicGenres = ({
+  genresList,
+  toggledGenres,
+  setToggledGenres,
+}) => {
   const addGenreToList = (e) => {
     const val = e.target.value
     if (toggledGenres.includes(val)) {
@@ -17,6 +19,8 @@ export const MusicGenres = ({ genresList }) => {
     } else {
       setToggledGenres([...toggledGenres, val])
     }
+    console.log(e.target)
+
   }
 
   return (
@@ -27,7 +31,7 @@ export const MusicGenres = ({ genresList }) => {
           key={gen}
           value={gen}
           variant="outline"
-          className="Genre"
+          className="Genre tracking-tight"
         >
           {gen}
         </Toggle>

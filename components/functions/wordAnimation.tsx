@@ -4,13 +4,8 @@ import { Italic } from "lucide-react"
 
 import { Toggle } from "../ui/toggle"
 
-type PersonData = {
-  Genre: String[]
-  Mood: String[]
-}
 
-export const WordAnimation = ({ moodList }) => {
-  const [toggledMood, setToggledMood] = useState<PersonData[]>([])
+export const WordAnimation = ({moodList, toggledMood, setToggledMood}) => {
   const [width, setWidth] = useState<number>(0)
   const carousel = useRef(null);
 
@@ -37,10 +32,11 @@ export const WordAnimation = ({ moodList }) => {
           <motion.div className="item mood_item">
             <Toggle
               key={item}
+              value={item}
               onClick={addMoodToList}
               size="lg"
               aria-label="Toggle italic"
-              className="mood_item"
+              className="mood_item tracking-tight"
             >
               {item}
             </Toggle>
