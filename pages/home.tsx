@@ -12,6 +12,7 @@ import { motion } from "framer-motion"
 import OpenAI_Req_Genereate_Music from "@/components/functions/musicListGenerator"
 import { Button } from "@/components/ui/button"
 import Loader_idle from "@/components/ui/loader_idle"
+import YouTube from "react-youtube";
 
 type PersonData = String[]
 
@@ -25,86 +26,96 @@ const Home = () => {
   const [showGenButton, setShowGenButton] = useState<Boolean>(false)
 
   const [genresList, setGenresList] = useState<String[]>([
-    // "Pop",
-    // "Rock",
-    // "Jazz",
-    // "Blues",
-    // "Reggae",
-    // "Folk",
+    "Pop",
+    "Rock",
+    "Jazz",
+    "Blues",
+    "Reggae",
+    "Folk",
   ])
   const [moodList, setMoodList] = useState<String[]>([
-    // "Cheerful",
-    // "Joyful",
-    // "Energetic",
-    // "Uplifting",
-    // "Relaxed",
-    // "Calm",
-    // "Peaceful",
-    // "Refreshing",
-    // "Optimistic",
-    // "Inspiring",
+    "Cheerful",
+    "Joyful",
+    "Energetic",
+    "Uplifting",
+    "Relaxed",
+    "Calm",
+    "Peaceful",
+    "Refreshing",
+    "Optimistic",
+    "Inspiring",
   ])
   const [musicList, setMusicList] = useState<Object>([
-    // {
-    //   Description:
-    //     "A fast-paced, upbeat song with a catchy chorus and a strong beat",
-    //   "Song name": "Uptown Funk",
-    //   Artist: "Mark Ronson ft. Bruno Mars",
-    // },
-    // {
-    //   Description:
-    //     "A classic hip-hop song with empowering lyrics and chilled out vocals",
-    //   "Song name": "The Message",
-    //   Artist: "Grandmaster Flash",
-    // },
-    // {
-    //   Description:
-    //     "A powerful and uplifting pop song with an infectious beat and inspiring lyrics",
-    //   "Song name": "Stronger",
-    //   Artist: "Kelly Clarkson",
-    // },
-    // {
-    //   Description:
-    //     "An upbeat and bouncy jazz song with a catchy melody and joyful atmosphere",
-    //   "Song name": "Take The A Train",
-    //   Artist: "Duke Ellington and his Orchestra",
-    // },
-    // {
-    //   Description:
-    //     "An energetic hip-hop track with a strong beat and uplifting lyrics",
-    //   "Song name": "Glory",
-    //   Artist: "Common ft John Legend",
-    // },
-    // {
-    //   Description:
-    //     "A driving pop-rock song with a foot-tapping beat and a chorus that will get stuck in your head",
-    //   "Song name": "Eye of the Tiger",
-    //   Artist: "Survivor",
-    // },
-    // {
-    //   Description:
-    //     "A funky, soulful jazz song with a groovy bass line and an infectious rhythm",
-    //   "Song name": "Ain't No Stopping Us Now",
-    //   Artist: "McFadden & Whitehead",
-    // },
-    // {
-    //   Description:
-    //     "A fun and energetic hip-hop song with a powerful beat and inspiring lyrics",
-    //   "Song name": "Can't Hold Us",
-    //   Artist: "Macklemore & Ryan Lewis ft. Ray Dalton",
-    // },
-    // {
-    //   Description:
-    //     "A classic pop-rock song with a driving beat and uplifting lyrics",
-    //   "Song name": "Don't Stop Believin'",
-    //   Artist: "Journey",
-    // },
-    // {
-    //   Description:
-    //     "An uplifting jazz ballad with a smooth melody and relaxed rhythm",
-    //   "Song name": "My Funny Valentine",
-    //   Artist: "Chet Baker",
-    // },
+    {
+      Description:
+        "This song is about staying motivated and passionate while working hard to achieve your goals.",
+      "Song name": "Work Hard Play Hard",
+      Artist: "Wiz Khalifa",
+      Link: "https://www.youtube.com/watch?v=EIdtVfCgs0o",
+    },
+    {
+      Description:
+        "This song is about setting goals to succeed and how to act when achieving those goals.",
+      "Song name": "A Milli",
+      Artist: "Lil Wayne",
+      Link: "https://www.youtube.com/watch?v=ak2ZF9Rc6PI",
+    },
+    {
+      Description:
+        "This song is about striving to be the best, no matter the odds.",
+      "Song name": "The Climb",
+      Artist: "Miley Cyrus",
+      Link: "https://www.youtube.com/watch?v=NG2zyeVRcbs",
+    },
+    {
+      Description:
+        "This song is about always reaching for the stars and never giving up.",
+      "Song name": "Stronger",
+      Artist: "Kanye West",
+      Link: "https://www.youtube.com/watch?v=PsO6ZnUZI0g",
+    },
+    {
+      Description:
+        "This song is about staying motivated to reach your goals, no matter how hard the process might be.",
+      "Song name": "Glory",
+      Artist: "Jay Z & Kanye West",
+      Link: "https://www.youtube.com/watch?v=uO59tfQ2TbA",
+    },
+    {
+      Description:
+        "This song is about staying focused and working hard to reach success.",
+      "Song name": "Hall of Fame",
+      Artist: "The Script & will.i.am",
+      Link: "https://www.youtube.com/watch?v=mk48xRzuNvA",
+    },
+    {
+      Description:
+        "This song is about staying focused and never giving up, even when times get hard.",
+      "Song name": "Lost One",
+      Artist: "Jay-Z",
+      Link: "https://www.youtube.com/watch?v=JnKQ2Eas_SY",
+    },
+    {
+      Description:
+        "This song is about rising above all the doubt and frustration to reach your goals.",
+      "Song name": "Never Give Up",
+      Artist: "Sia",
+      Link: "https://www.youtube.com/watch?v=C-u5WLJ9Yk4",
+    },
+    {
+      Description:
+        "This song is about reaching success, no matter what anyone else thinks.",
+      "Song name": "The Bottom",
+      Artist: "Lil Baby & Gunna",
+      Link: "https://www.youtube.com/watch?v=qLm6ospTSYI",
+    },
+    {
+      Description:
+        "This song is about how with hard work and dedication, you can make your dreams a reality.",
+      "Song name": "Lose Yourself",
+      Artist: "Eminem",
+      Link: "https://www.youtube.com/watch?v=_Yhyp-_hX2s",
+    },
   ])
   const responsive = {
     superLargeDesktop: {
@@ -125,6 +136,14 @@ const Home = () => {
       items: 1,
     },
   }
+  const opts = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 0,
+    },
+  }
 
   const keydown_enter = async (e) => {
     if (e.code == "Enter") {
@@ -140,16 +159,16 @@ const Home = () => {
     const obj = {
       genre: toggledGenres,
       mood: toggledMood,
-      situ: text
+      situ: text,
     }
-    setLoader(false);
-    console.log(obj.genre, obj.mood, obj.situ);
+    setLoader(false)
+    console.log(obj.genre, obj.mood, obj.situ)
     try {
       const objRes = await OpenAI_Req_Genereate_Music(obj)
       setMusicList(objRes)
       setLoader(true)
     } catch (e) {
-      console.log(e, "error");
+      console.log(e, "error")
     }
   }
   useEffect(() => {
@@ -185,7 +204,11 @@ const Home = () => {
       <div className="music_list_box">
         <div className="toggled_box">
           {showGenButton ? (
-            <Button className="gen_button" onClick={getMusicList} variant="subtle">
+            <Button
+              className="gen_button"
+              onClick={getMusicList}
+              variant="subtle"
+            >
               Generate
             </Button>
           ) : (
@@ -213,6 +236,11 @@ const Home = () => {
                 Object.keys(musicList).map((key, index) => {
                   return (
                     <motion.div className="item song_card tracking-tight">
+                      <YouTube
+                        videoId={musicList[key]["Link"].split("v=")[1].split("&")[0]}
+                        opts={opts}
+                        className="youtube_vid"
+                      />
                       <div style={{ fontSize: "1.7vh" }} className="song_info">
                         {musicList[key]["Song name"]}
                       </div>
