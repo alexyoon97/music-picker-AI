@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-
 import { Input } from "../ui/input"
 import { MusicGenres } from "./musicGenres"
 import { WordAnimation } from "./wordAnimation"

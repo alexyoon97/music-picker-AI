@@ -11,7 +11,7 @@ export const WordAnimation = ({moodList, toggledMood, setToggledMood}) => {
 
   useEffect(() => {
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
-  },[])
+  },[moodList])
 
   const addMoodToList = (e) => {
     const val = e.target.value
