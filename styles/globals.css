@@ -19,6 +19,10 @@
     margin-left: auto;
     margin-right: 20px;
 }
+.search_box{
+    display: flex;
+    flex-direction: column;
+}
 .search_bar{
     margin: auto;
     text-align: center;
@@ -74,7 +78,6 @@
 }
 .toggled_item{
     text-align: center;
-    width: 35%;
     margin: auto;
     padding: 1vh 2vh;
     user-select: none;
@@ -91,14 +94,9 @@
     display: flex;
 }
 .youtube_vid{
-    opacity: .1;
-    z-index: 2;
-    position:absolute;
-    width: 5vh;
+    opacity: .5;
 }
 .song_card{
-    position:block;
-    z-index: 1;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -106,7 +104,6 @@
     border-radius: 10px;
     cursor: pointer;
     margin: 3vh 5vh;
-    transition: font-size 3s ease;
     white-space: nowrap;
 }
 .song_info{
@@ -116,4 +113,23 @@
 }
 .music_list_box{
     flex-direction: column;
+}
+.song_info_div{
+    margin: auto;
+    white-space: normal;
+    width: 40vh;
+}
+.header{
+    margin: 1vh;
+}
+.header span{
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #4e4e4e;
+    font-size: 1.2vh;
+    padding-top: .5vh;
 }

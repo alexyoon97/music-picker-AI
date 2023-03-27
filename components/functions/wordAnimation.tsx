@@ -29,7 +29,7 @@ export const WordAnimation = ({moodList, toggledMood, setToggledMood}) => {
         className="inner-carousel mood_slider"
       >
         {moodList.map((item) => (
-          <motion.div className="item mood_item">
+          <motion.div className="item mood_item" key={item}>
             <Toggle
               key={item}
               value={item}

@@ -5,6 +5,8 @@ import { ThemeProvider } from "next-themes"
 import "@/styles/globals.css"
 import "@/styles/loader.css"
 import "@/styles/loader_idle.css"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 
 
 
@@ -23,7 +25,9 @@ export default function App({ Component, pageProps }: AppProps) {
 				}
 			}`}</style>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <Header/>
         <Component {...pageProps} />
+        <Footer/>
       </ThemeProvider>
     </>
   )

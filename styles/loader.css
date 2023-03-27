@@ -1,7 +1,6 @@
-.loader {
-    position: fixed;
-    left: 3%;
-    bottom: 5%;
+  .loader {
+    margin: auto;
+    opacity: 1;
   }
 
   .outer,
@@ -12,8 +11,7 @@
     border-right-color: #3cefff;
     border-radius: 50%;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top:18%
   }
   
   .outer {
