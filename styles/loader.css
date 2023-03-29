@@ -10,8 +10,9 @@
     border-top-color: #3cefff;
     border-right-color: #3cefff;
     border-radius: 50%;
-    position: absolute;
-    top:18%
+    position: fixed;
+    left: 10vh;
+    top: 10vh;
   }
   
   .outer {

@@ -1,11 +1,14 @@
 import Head from "next/head"
-import Link from "next/link"
-
-import { siteConfig } from "@/config/site"
 import { Layout } from "@/components/layout"
-import { buttonVariants } from "@/components/ui/button"
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function IndexPage() {
+  const { push } = useRouter();
+  
+    useEffect(() => {
+       push('/home');
+    }, []);
   return (
     <Layout>
       <Head>

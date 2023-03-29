@@ -1,8 +1,9 @@
 .box {
-  position: relative;
+  position: fixed;
     margin: auto;
     opacity: 1;
-    top: -10vh;
+  left: 10vh;
+  top: 10vh;
   }
   
   .coin {
